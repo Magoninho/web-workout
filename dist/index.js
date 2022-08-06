@@ -1,24 +1,24 @@
 import Workout from "./workout.js";
-// TODO: get from json
-let workoutjson = `
-{
-	"workoutName": "Abs workout 3 minutes",
-
-	"exercises": {
-		"sit ups": {
-			"seconds": 2,
-			"image": "./assets/cat.png"
-		},
-
-		"plank": {
-			"seconds": 2,
-			"image": "./assets/cat2.png"
-		}
-	}
+let fileInput = document.getElementById('file-upload');
+let workoutfile = fileInput.files[0];
+let workoutText = "";
+fileInput.addEventListener("change", handleFiles, false);
+const reader = new FileReader();
+function handleFiles() {
+    const fileList = this.files;
+    reader.onload = (evt) => {
+        workoutText = String(evt.target.result);
+    };
+    reader.readAsText(fileList[0]);
 }
-`;
-let mydiv = document.querySelector("#workout");
-let workout = new Workout(JSON.parse(workoutjson));
-workout.start();
-// workout.render(mydiv);
+let btn = document.querySelector("#start-btn");
+btn.addEventListener("click", () => {
+    try {
+        let workout = new Workout(JSON.parse(workoutText));
+        workout.start();
+    }
+    catch (e) {
+        alert("JSON error:\n" + e);
+    }
+});
 //# sourceMappingURL=index.js.map

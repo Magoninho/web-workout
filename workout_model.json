@@ -3,13 +3,13 @@
 
 	"exercises": {
 		"sit ups": {
-			"seconds": 30,
-			"imageURL": "./assets/cat.png"
+			"seconds": 2,
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Sit-up_on_the_bench_draw_%28animated%29.gif/640px-Sit-up_on_the_bench_draw_%28animated%29.gif"
 		},
 
 		"plank": {
-			"seconds": 30,
-			"imageURL": "./assets/cat2.png"
+			"seconds": 2,
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Plank.jpg/640px-Plank.jpg"
 		}
 	}
 }
