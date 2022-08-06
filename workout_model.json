@@ -1,0 +1,15 @@
+{
+	"workoutName": "Abs workout 3 minutes",
+
+	"exercises": {
+		"sit ups": {
+			"seconds": 30,
+			"imageURL": "./assets/cat.png"
+		},
+
+		"plank": {
+			"seconds": 30,
+			"imageURL": "./assets/cat2.png"
+		}
+	}
+}
