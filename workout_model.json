@@ -3,27 +3,27 @@
 	"sets": 3,
 	"exercises": {
 		"Lunge Steps-ups": {
-			"seconds": 20,
+			"reps": 20,
 			"image": "./assets/legs/lunge.png"
 		},
 		"Squat hold": {
-			"seconds": 20,
+			"reps": 2,
 			"image": "./assets/legs/squat-hold.png"
 		},
 		"Squats": {
-			"seconds": 20,
+			"reps": 1,
 			"image": "./assets/legs/squats.png"
 		},
 		"Front kicks": {
-			"seconds": 15,
+			"reps": 10,
 			"image": "./assets/legs/front-kicks.png"
 		},
 		"Calf raises": {
-			"seconds": 15,
+			"reps": 1,
 			"image": "./assets/legs/calf-raises.png"
 		},
 		"Side leg raises": {
-			"seconds": 15,
+			"reps": 2,
 			"image": "./assets/legs/side-leg-raises.png"
 		}
 	}

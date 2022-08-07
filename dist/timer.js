@@ -18,4 +18,4 @@ export default class Timer {
         return this.seconds >= 10 ? `${minutes}:${this.seconds - (minutes * 60)}` : `${minutes}:0${this.seconds - (minutes * 60)}`;
     }
 }
-//# sourceMappingURL=timeRenderer.js.map
+//# sourceMappingURL=timer.js.map

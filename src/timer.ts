@@ -1,4 +1,4 @@
-export default class TimeText {
+export default class Timer {
 	private seconds: number;
 	public hasEnded: boolean = false;
 
