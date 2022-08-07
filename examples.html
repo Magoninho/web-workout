@@ -10,12 +10,14 @@
 </head>
 
 <body>
+	<img src="assets/Web-Workout.png" alt="Web Workout" style="max-width: 100%;">
+
 	<h1>1. HIIT Cardio workout</h1>
 	<img src="assets/shifter.png" style="max-width: 100%;">
 	<h2>JSON:</h2>
 <pre>
 {
-	"workoutName": "HIIT Shifter",
+	"name": "HIIT Shifter",
 	"sets": 3,
 	"restTime": 10,
 
@@ -39,17 +41,15 @@
 </pre>
 
 <h1>2. Legs of steel</h1>
-	<img src="assets/leg.png" style="max-width: 100%;">
+	<img src="assets/leg.jpg" style="max-width: 100%;">
 	<h2>JSON:</h2>
 <pre>
 {
-	"workoutName": "Legs of steel",
+	"name": "Legs of steel",
 	"sets": 3,
-	"restTime": 10,
-
 	"exercises": {
 		"Lunge Steps-ups": {
-			"seconds": 20,
+			"reps": 20,
 			"image": "./assets/legs/lunge.png"
 		},
 		"Squat hold": {
@@ -57,20 +57,46 @@
 			"image": "./assets/legs/squat-hold.png"
 		},
 		"Squats": {
-			"seconds": 20,
+			"reps": 20,
 			"image": "./assets/legs/squats.png"
 		},
 		"Front kicks": {
-			"seconds": 15,
+			"reps": 10,
 			"image": "./assets/legs/front-kicks.png"
 		},
 		"Calf raises": {
-			"seconds": 15,
+			"reps": 10,
 			"image": "./assets/legs/calf-raises.png"
 		},
 		"Side leg raises": {
-			"seconds": 15,
+			"reps": 10,
 			"image": "./assets/legs/side-leg-raises.png"
+		}
+	}
+}
+</pre>
+<h1>3. Saitama workout</h1>
+	<img src="assets/saitama/saitama.jpg" style="max-width: 100%;">
+	<h2>JSON:</h2>
+<pre>
+{
+	"name": "saitama workout",
+	"exercises": {
+		"100 push ups": {
+			"reps": 100,
+			"image": "./assets/saitama/push-ups.png"
+		},
+		"100 sit ups": {
+			"reps": 100,
+			"image": "./assets/saitama/situps.png"
+		},
+		"100 squats": {
+			"reps": 100,
+			"image": "./assets/saitama/squats.png"
+		},
+		"10km running": {
+			"reps": 1,
+			"image": "./assets/saitama/running.png"
 		}
 	}
 }

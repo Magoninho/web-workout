@@ -1,0 +1,30 @@
+{
+	"name": "abs workout 3 min",
+	"exercises": {
+		"Twist to sides": {
+			"seconds": 30,
+			"image": "https://drive.google.com/uc?export=download&id=1-VG0TJ0wpAiHNl82jXwMoWY7tt_c3oSZ"
+		},
+		
+		"Bicycle": {
+			"seconds": 30,
+			"image": "https://drive.google.com/uc?export=download&id=1shMe07X-mZzxMwG5aSAgzd3IwDUi04cN"
+		},
+		"Raised twists": {
+			"seconds": 30,
+			"image": "https://drive.google.com/uc?export=download&id=14Nugy1-p_4HRowfFQaAEWDylr_2v-CT1"
+		},
+		"Hip turns": {
+			"seconds": 30,
+			"image": "https://drive.google.com/uc?export=download&id=1BOiSuDStrmPMepdo_Qvclzekk82QGAJd"
+		},
+		"Pull to the Knees": {
+			"seconds": 30,
+			"image": "https://drive.google.com/uc?export=download&id=14IM-W9LB9rZOMsZVMyBOUThEzNBfGAin"
+		},
+		"Twisting while sitting": {
+			"seconds": 30,
+			"image": "https://drive.google.com/uc?export=download&id=1wRG8-PXUf9mrL7GnbbmrI1WqmuCzgPLV"
+		}
+	}
+}

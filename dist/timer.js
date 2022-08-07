@@ -2,7 +2,12 @@ export default class Timer {
     constructor(seconds) {
         this.hasEnded = false;
         this.seconds = seconds;
+        this.initialSeconds = this.seconds;
     }
+    /**
+     * This method ticks the timer, making seconds going down by 1
+     *
+     */
     tick() {
         if (this.seconds <= 0) {
             this.hasEnded = true;
@@ -10,9 +15,16 @@ export default class Timer {
         }
         this.seconds--;
     }
-    // public start() {
-    // 	this.interval = setInterval(this.tick.bind(this), 1000);
-    // }
+    /**
+     * This method will make the seconds go back to its initial value
+     */
+    reset() {
+        this.seconds = this.initialSeconds;
+        this.hasEnded = false;
+    }
+    /**
+     * This method returns a string with the time
+     */
     getTimerText() {
         let minutes = Math.floor(this.seconds / 60);
         return this.seconds >= 10 ? `${minutes}:${this.seconds - (minutes * 60)}` : `${minutes}:0${this.seconds - (minutes * 60)}`;

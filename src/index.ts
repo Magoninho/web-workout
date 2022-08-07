@@ -24,8 +24,6 @@ btn1.onclick = () => {
 	start(textarea.value);
 };
 let btn2 = document.querySelector("#start-btn2") as HTMLButtonElement;
-
-
 btn2.onclick = () => {
 	start(workoutText);
 };

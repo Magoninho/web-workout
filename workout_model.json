@@ -1,5 +1,5 @@
 {
-	"workoutName": "Legs of steel",
+	"name": "Legs of steel",
 	"sets": 3,
 	"exercises": {
 		"Lunge Steps-ups": {
@@ -7,11 +7,11 @@
 			"image": "./assets/legs/lunge.png"
 		},
 		"Squat hold": {
-			"reps": 2,
+			"seconds": 20,
 			"image": "./assets/legs/squat-hold.png"
 		},
 		"Squats": {
-			"reps": 1,
+			"reps": 20,
 			"image": "./assets/legs/squats.png"
 		},
 		"Front kicks": {
@@ -19,11 +19,11 @@
 			"image": "./assets/legs/front-kicks.png"
 		},
 		"Calf raises": {
-			"reps": 1,
+			"reps": 10,
 			"image": "./assets/legs/calf-raises.png"
 		},
 		"Side leg raises": {
-			"reps": 2,
+			"reps": 10,
 			"image": "./assets/legs/side-leg-raises.png"
 		}
 	}

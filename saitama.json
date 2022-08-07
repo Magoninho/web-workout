@@ -1,0 +1,21 @@
+{
+	"name": "saitama workout",
+	"exercises": {
+		"100 push ups": {
+			"reps": 100,
+			"image": "./assets/saitama/push-ups.png"
+		},
+		"100 sit ups": {
+			"reps": 100,
+			"image": "./assets/saitama/situps.png"
+		},
+		"100 squats": {
+			"reps": 100,
+			"image": "./assets/saitama/squats.png"
+		},
+		"10km running": {
+			"reps": 1,
+			"image": "./assets/saitama/running.png"
+		}
+	}
+}

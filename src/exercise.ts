@@ -16,6 +16,11 @@ export default class Exercise {
 		this.imageURL = imageURL;
 	}
 
+	/**
+	 * This method sets the time, in seconds, that the exercise will have
+	 * Obs: If the exercise is not timed, an error occurs.
+	 * @param seconds The time in seconds
+	 */
 	public setTime(seconds: number) {
 		if (this.timed) {
 			this.seconds = seconds;
@@ -23,6 +28,11 @@ export default class Exercise {
 		} else throw "Error: This exercise is does not have time, only reps.";
 	}
 
+	/**
+	 * This method sets the number of reps that the exercise will have
+	 * Obs: If the exercise is timed, an error occurs.
+	 * @param reps The number of reps
+	 */
 	public setReps(reps: number) {
 		if (!this.timed) {
 			this.reps = reps;
