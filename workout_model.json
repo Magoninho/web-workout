@@ -6,36 +6,21 @@
 			"seconds": 20,
 			"image": "./assets/legs/lunge.png"
 		},
-		"Rest": {
-			"seconds": 10
-		},
 		"Squat hold": {
 			"seconds": 20,
 			"image": "./assets/legs/squat-hold.png"
-		},
-		"Rest 2": {
-			"seconds": 10
 		},
 		"Squats": {
 			"seconds": 20,
 			"image": "./assets/legs/squats.png"
 		},
-		"Rest 3": {
-			"seconds": 10
-		},
 		"Front kicks": {
 			"seconds": 15,
 			"image": "./assets/legs/front-kicks.png"
 		},
-		"Rest 4": {
-			"seconds": 10
-		},
 		"Calf raises": {
 			"seconds": 15,
 			"image": "./assets/legs/calf-raises.png"
-		},
-		"Rest 5": {
-			"seconds": 10
 		},
 		"Side leg raises": {
 			"seconds": 15,

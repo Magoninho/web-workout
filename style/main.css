@@ -1,7 +1,9 @@
 body {
-	text-align: center;
 	font-family: monospace;
 	font-size: x-large;
+	max-width: 800px;
+	text-align: center;
+	margin: auto;
 }
 
 textarea,
@@ -37,5 +39,28 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	text-align: left;
 	border: 1px solid black;
-	width: 100%;
+	width: 90%;
+	margin: auto;
+	padding: 5px;
+}
+
+button {
+	cursor: pointer;
+	margin-top: 10px;
+	height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-width: 1px;
+	color: #000;
+	border-color: #dcdcdc;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	box-shadow: 0px 1px 0px 0px #000;
+	background: linear-gradient(#ffffff, #bbbbbb);
+	font-family: monospace;
+}
+button:active {
+	background: linear-gradient(#bbbbbb, #ffffff);
 }

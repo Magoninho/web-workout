@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,30 @@
 	<title>Web Workout</title>
 	<link rel="stylesheet" href="style/main.css">
 </head>
+
 <body>
 	<img src="assets/Web-Workout.png" alt="Web Workout" style="max-width: 100%;">
 	<div id="input">
-	<p>Web Workout is an open source project writen by a brogrammer 💪👨‍💻 using typescript that allows you to convert json files into practicable workouts</p>
-		<textarea id="pasted-json" placeholder="Paste your workout JSON here..." ></textarea><br>
-		<a href="examples.html">Choose some examples</a><br>
+		<p>Web Workout is an open source project writen by Magoninho, a brogrammer 💪👨‍💻, using typescript that allows
+			you to convert json files into practicable workouts</p>
+		<textarea id="pasted-json" placeholder="Paste your workout JSON here..."></textarea><br>
+		<a href="examples.html">Choose from examples</a><br>
 		<button id="start-btn1">Start</button><br>
 
 		<p>OR</p>
 
-		<input type="file" name="" id="file-upload" accept=".json"><br><br>
-		<button id="start-btn2">Start</button>
+		<div style="border: 1px solid black; width: fit-content; margin: auto; padding:20px;">
+			<h3>Choose a json file from device:</h3>
+			<input type="file" name="" id="file-upload" accept=".json"><br><br>
+			<button id="start-btn2">Start</button>
+		</div>
 	</div>
 
 	<div id="workout">
 		<div id="info">
 			<h1 id="title"></h1>
 			<img id="image" width="350">
-			
+
 		</div>
 
 		<div id="time" style="font-size: 48pt;">
@@ -38,4 +44,5 @@
 
 	<script type="module" src="dist/index.js"></script>
 </body>
+
 </html>

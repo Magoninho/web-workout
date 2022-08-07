@@ -13,7 +13,10 @@ export default class Workout {
         this.exercises = this.workoutObj['exercises'];
         if (this.workoutObj['sets'])
             this.numOfSets = this.workoutObj['sets'];
-        this.minutes = this.getTotalSeconds() / 60;
+        // checks if there is a rest setting in the json, then applies this information
+        this.enableResting = this.workoutObj['restTime'] !== undefined;
+        if (this.enableResting)
+            this.restTime = this.workoutObj['restTime'];
         this.numOfExercises = Object.keys(this.exercises).length;
         this.intervals = new Array(this.numOfExercises * this.numOfSets);
         // creates a new array with the number of exercises as length
@@ -23,6 +26,7 @@ export default class Workout {
             let keynames = Object.keys(this.exercises);
             this.timers[i] = new TimeText(this.exercises[keynames[i % this.numOfExercises]].seconds);
         }
+        this.minutes = this.getTotalSeconds() / 60;
     }
     start() {
         this.renderInfo();
@@ -35,13 +39,35 @@ export default class Workout {
                     this.renderResults();
                     return;
                 }
-                // TODO: rest
-                this.index++;
-                this.start(); // recursion lol
+                if (this.enableResting) {
+                    this.rest();
+                }
+                else {
+                    this.index++; // goes to the next index
+                    this.start(); // recursion lol
+                }
             }
             else {
                 timeDiv.innerText = this.timers[this.index].getTimerText();
                 this.timers[this.index].tick();
+            }
+        }, 1000);
+    }
+    rest() {
+        let restTimer = new TimeText(this.restTime);
+        timeDiv.innerText = restTimer.getTimerText();
+        title.innerText = "Rest";
+        image.src = "./assets/clock.svg";
+        let restInterval = setInterval(() => {
+            if (restTimer.hasEnded) {
+                clearInterval(restInterval);
+                // this.start();
+                this.index++; // goes to the next index
+                this.start();
+            }
+            else {
+                timeDiv.innerText = restTimer.getTimerText();
+                restTimer.tick();
             }
         }, 1000);
     }
@@ -54,7 +80,9 @@ export default class Workout {
                 seconds += e['seconds'];
             }
         }
-        return seconds;
+        // idk if this is working lol
+        seconds += (this.restTime * (this.numOfExercises - 1)) * this.numOfSets;
+        return seconds * this.numOfSets;
     }
     // this render method renders the info once when called
     renderInfo() {
