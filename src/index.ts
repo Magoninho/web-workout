@@ -9,7 +9,7 @@ fileInput.addEventListener("change", handleFiles, false);
 const reader = new FileReader();
 
 function handleFiles() {
-	const fileList =  this.files;
+	const fileList = this.files;
 	reader.onload = (evt) => {
 		workoutText = String(evt.target.result);
 	}

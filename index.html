@@ -44,6 +44,19 @@
 		<p id="results"></p>
 	</div>
 
+	<script src="dist/nosleep.js"></script>
+	<script>
+
+		// this module prevents display sleep and enable wake lock in all Android and iOS web browsers
+		// https://github.com/richtr/NoSleep.js
+		let noSleep = new NoSleep();
+		document.addEventListener('click', function enableNoSleep() {
+			document.removeEventListener('click', enableNoSleep, false);
+			noSleep.enable();
+			console.log("asdf")
+		}, false);
+	</script>
+
 	<script type="module" src="dist/index.js"></script>
 </body>
 

@@ -5,6 +5,7 @@
 		"rootDir": "./src",
 		"outDir": "./dist",
 		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
 		"lib": [
 			"es6",
 			"dom",
