@@ -1,4 +1,4 @@
-export default class TimeRenderer {
+export default class TimeText {
     constructor(seconds) {
         this.hasEnded = false;
         this.seconds = seconds;
@@ -15,7 +15,7 @@ export default class TimeRenderer {
     // }
     getTimerText() {
         let minutes = Math.floor(this.seconds / 60);
-        return this.seconds > 10 ? `${minutes}:${this.seconds - (minutes * 60)}` : `${minutes}:0${this.seconds - (minutes * 60)}`;
+        return this.seconds >= 10 ? `${minutes}:${this.seconds - (minutes * 60)}` : `${minutes}:0${this.seconds - (minutes * 60)}`;
     }
 }
 //# sourceMappingURL=timeRenderer.js.map

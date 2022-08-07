@@ -1,15 +1,45 @@
 {
-	"workoutName": "Abs workout 3 minutes",
-
+	"workoutName": "Legs of steel",
+	"sets": 3,
 	"exercises": {
-		"sit ups": {
-			"seconds": 2,
-			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Sit-up_on_the_bench_draw_%28animated%29.gif/640px-Sit-up_on_the_bench_draw_%28animated%29.gif"
+		"Lunge Steps-ups": {
+			"seconds": 20,
+			"image": "./assets/legs/lunge.png"
 		},
-
-		"plank": {
-			"seconds": 2,
-			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Plank.jpg/640px-Plank.jpg"
+		"Rest": {
+			"seconds": 10
+		},
+		"Squat hold": {
+			"seconds": 20,
+			"image": "./assets/legs/squat-hold.png"
+		},
+		"Rest 2": {
+			"seconds": 10
+		},
+		"Squats": {
+			"seconds": 20,
+			"image": "./assets/legs/squats.png"
+		},
+		"Rest 3": {
+			"seconds": 10
+		},
+		"Front kicks": {
+			"seconds": 15,
+			"image": "./assets/legs/front-kicks.png"
+		},
+		"Rest 4": {
+			"seconds": 10
+		},
+		"Calf raises": {
+			"seconds": 15,
+			"image": "./assets/legs/calf-raises.png"
+		},
+		"Rest 5": {
+			"seconds": 10
+		},
+		"Side leg raises": {
+			"seconds": 15,
+			"image": "./assets/legs/side-leg-raises.png"
 		}
 	}
 }

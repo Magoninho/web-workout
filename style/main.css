@@ -1,0 +1,41 @@
+body {
+	text-align: center;
+	font-family: monospace;
+	font-size: x-large;
+}
+
+textarea,
+pre {
+    -moz-tab-size : 4;
+      -o-tab-size : 4;
+         tab-size : 4;
+}
+
+textarea {
+	width: 60%;
+	height: 250px;
+}
+
+td, tr {
+	width: 800px;
+	border: 1px solid black;
+	font-family: monospace;
+	font-size: large;
+	text-align: left;
+	vertical-align: top;
+	
+}
+table {
+	border-collapse: collapse;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	text-align: left;
+	border: 1px solid black;
+	width: 100%;
+}

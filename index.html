@@ -5,14 +5,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Web Workout</title>
+	<link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-	<img src="assets/Web-Workout.png" alt="Web Workout">
-	<p>Web Workout is an open source project writen by a brogrammer using typescript that allows you to convert json files into practicable workouts</p>
+	<img src="assets/Web-Workout.png" alt="Web Workout" style="max-width: 100%;">
+	<div id="input">
+	<p>Web Workout is an open source project writen by a brogrammer 💪👨‍💻 using typescript that allows you to convert json files into practicable workouts</p>
+		<textarea id="pasted-json" placeholder="Paste your workout JSON here..." ></textarea><br>
+		<a href="examples.html">Choose some examples</a><br>
+		<button id="start-btn1">Start</button><br>
 
+		<p>OR</p>
 
-	<input type="file" name="" id="file-upload" accept=".json">
-	<button id="start-btn">Start</button>
+		<input type="file" name="" id="file-upload" accept=".json"><br><br>
+		<button id="start-btn2">Start</button>
+	</div>
 
 	<div id="workout">
 		<div id="info">
@@ -21,7 +28,7 @@
 			
 		</div>
 
-		<div id="time">
+		<div id="time" style="font-size: 48pt;">
 
 		</div>
 	</div>

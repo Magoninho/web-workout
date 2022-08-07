@@ -1,4 +1,4 @@
-export default class TimeRenderer {
+export default class TimeText {
 	private seconds: number;
 	public hasEnded: boolean = false;
 
@@ -7,12 +7,12 @@ export default class TimeRenderer {
 	}
 
 	public tick() {
-		
+
 		if (this.seconds <= 0) {
 			this.hasEnded = true;
 			return;
 		}
-		
+
 		this.seconds--;
 	}
 
@@ -22,6 +22,6 @@ export default class TimeRenderer {
 
 	public getTimerText(): string {
 		let minutes = Math.floor(this.seconds / 60);
-		return this.seconds > 10 ? `${minutes}:${this.seconds - (minutes * 60)}` : `${minutes}:0${this.seconds - (minutes * 60)}`;
+		return this.seconds >= 10 ? `${minutes}:${this.seconds - (minutes * 60)}` : `${minutes}:0${this.seconds - (minutes * 60)}`;
 	}
 }

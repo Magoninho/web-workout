@@ -1,4 +1,5 @@
 import Workout from "./workout.js";
+let textarea = document.getElementById("pasted-json");
 let fileInput = document.getElementById('file-upload');
 let workoutfile = fileInput.files[0];
 let workoutText = "";
@@ -11,14 +12,21 @@ function handleFiles() {
     };
     reader.readAsText(fileList[0]);
 }
-let btn = document.querySelector("#start-btn");
-btn.addEventListener("click", () => {
+let btn1 = document.querySelector("#start-btn1");
+btn1.onclick = () => {
+    start(textarea.value);
+};
+let btn2 = document.querySelector("#start-btn2");
+btn2.onclick = () => {
+    start(workoutText);
+};
+function start(text) {
     try {
-        let workout = new Workout(JSON.parse(workoutText));
+        let workout = new Workout(JSON.parse(text));
         workout.start();
     }
     catch (e) {
         alert("JSON error:\n" + e);
     }
-});
+}
 //# sourceMappingURL=index.js.map
