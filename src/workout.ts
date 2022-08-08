@@ -6,6 +6,7 @@ const workoutDiv = document.querySelector("#workout") as HTMLDivElement;
 const title = document.querySelector("#title") as HTMLHeadingElement;
 const image = document.querySelector("#image") as HTMLImageElement;
 const resultText = document.querySelector("#results") as HTMLParagraphElement;
+const alarm = document.querySelector("#alarm") as HTMLAudioElement;
 
 export default class Workout {
 	public workoutObj: object;
@@ -103,6 +104,7 @@ export default class Workout {
 			let interval = setInterval(() => {
 				if (currentExercise.getTimer().hasEnded) {
 					clearInterval(interval);
+					alarm.play();
 					this.nextExercise();
 				} else {
 					timeDiv.innerText = currentExercise.getTimer().getTimerText();
@@ -138,6 +140,7 @@ export default class Workout {
 
 			if (restTimer.hasEnded) {
 				clearInterval(restInterval);
+				alarm.play();
 				this.index++; // goes to the next index
 				this.start();
 			} else {

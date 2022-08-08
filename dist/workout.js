@@ -5,6 +5,7 @@ const workoutDiv = document.querySelector("#workout");
 const title = document.querySelector("#title");
 const image = document.querySelector("#image");
 const resultText = document.querySelector("#results");
+const alarm = document.querySelector("#alarm");
 export default class Workout {
     constructor(workoutObj) {
         this.numOfSets = 1;
@@ -77,6 +78,7 @@ export default class Workout {
             let interval = setInterval(() => {
                 if (currentExercise.getTimer().hasEnded) {
                     clearInterval(interval);
+                    alarm.play();
                     this.nextExercise();
                 }
                 else {
@@ -105,6 +107,7 @@ export default class Workout {
         let restInterval = setInterval(() => {
             if (restTimer.hasEnded) {
                 clearInterval(restInterval);
+                alarm.play();
                 this.index++; // goes to the next index
                 this.start();
             }
