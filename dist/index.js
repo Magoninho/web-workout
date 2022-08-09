@@ -12,6 +12,11 @@ function handleFiles() {
     };
     reader.readAsText(fileList[0]);
 }
+function makeButtonInactive(btn) {
+    btn.disabled = true;
+    btn.classList.add("inactive");
+    btn.textContent = "Loading...";
+}
 let btn1 = document.querySelector("#start-btn1");
 btn1.onclick = () => {
     start(textarea.value);
@@ -23,6 +28,8 @@ btn2.onclick = () => {
 function start(text) {
     try {
         let workout = new Workout(JSON.parse(text));
+        makeButtonInactive(btn1);
+        makeButtonInactive(btn2);
         workout.start();
     }
     catch (e) {

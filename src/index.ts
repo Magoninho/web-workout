@@ -17,7 +17,11 @@ function handleFiles() {
 	reader.readAsText(fileList[0]);
 }
 
-
+function makeButtonInactive(btn: HTMLButtonElement) {
+	btn.disabled = true;
+	btn.classList.add("inactive");
+	btn.textContent = "Loading...";
+}
 
 let btn1 = document.querySelector("#start-btn1") as HTMLButtonElement;
 btn1.onclick = () => {
@@ -31,6 +35,8 @@ btn2.onclick = () => {
 function start(text: string) {
 	try {
 		let workout = new Workout(JSON.parse(text));
+		makeButtonInactive(btn1);
+		makeButtonInactive(btn2);
 		workout.start();
 	} catch (e) {
 		alert("JSON error:\n" + e);

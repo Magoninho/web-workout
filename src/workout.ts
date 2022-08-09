@@ -1,12 +1,15 @@
 import Exercise from "./exercise.js";
+import ImageUtils from "./ImageUtils.js";
+import Progress from "./progress.js";
 import Timer from "./timer.js";
 
 const timeDiv = document.querySelector("#time") as HTMLDivElement;
 const workoutDiv = document.querySelector("#workout") as HTMLDivElement;
-const title = document.querySelector("#title") as HTMLHeadingElement;
 const image = document.querySelector("#image") as HTMLImageElement;
 const resultText = document.querySelector("#results") as HTMLParagraphElement;
 const alarm = document.querySelector("#alarm") as HTMLAudioElement;
+const info_div = document.querySelector("#info") as HTMLDivElement;
+const loading_div = document.querySelector("#loading-div") as HTMLDivElement;
 
 export default class Workout {
 	public workoutObj: object;
@@ -20,6 +23,9 @@ export default class Workout {
 	private enableResting: boolean;
 	private restTime: number;
 	private setsRemaining: number;
+	private images: HTMLImageElement[];
+	private clockImage: HTMLImageElement;
+	private progress: Progress;
 
 
 	constructor(workoutObj: object) {
@@ -27,7 +33,8 @@ export default class Workout {
 		this.name = this.workoutObj['workoutName'];
 		this.numOfExercises = Object.keys(this.workoutObj['exercises']).length;
 		this.exercises = new Array(this.numOfExercises);
-		this.setup();
+		this.images = new Array(this.numOfExercises);
+		this.progress = new Progress(this.numOfExercises, loading_div);
 	}
 
 	/**
@@ -35,10 +42,11 @@ export default class Workout {
 	 * - create exercises from the json information
 	 * - define which exercises are timed and which are not, and define how many seconds
 	 * - checks if this workout allows resting, and if so, define how many seconds
+	 * - loads the clock image
 	 * - define the number of sets
 	 * - define the number of setsRemaining (will be used in the start() method)
 	 */
-	private setup() {
+	public async start() {
 
 		for (let e = 0; e < this.exercises.length; e++) {
 			let exercisesDict = this.workoutObj['exercises'];
@@ -53,8 +61,15 @@ export default class Workout {
 
 			if (timed) this.exercises[e].setTime(exercisesDict[names[e]]['seconds']);
 			else this.exercises[e].setReps(exercisesDict[names[e]]['reps']);
+
+			// adding new images to the images array
+			this.images[e] = await ImageUtils.loadImageFromUrl(imageURL);
+			this.images[e].classList.add("exercise-image");
+			this.progress.addProgress("Loading images");
 		}
 
+		this.clockImage = await ImageUtils.loadImageFromUrl("./assets/clock.svg");
+		this.clockImage.classList.add("exercise-image");
 
 		if (this.workoutObj['sets']) this.numOfSets = this.workoutObj['sets'];
 
@@ -63,13 +78,16 @@ export default class Workout {
 		if (this.enableResting) this.restTime = this.workoutObj['restTime'];
 
 		this.setsRemaining = this.numOfSets;
+
+		this.progress.removeProgressPopUp();
+
+
+		// Finally begin the exercises!
+		this.exerciseStart();
 	}
 
-	public start() {
-
+	private exerciseStart() {
 		let currentExercise: Exercise = this.exercises[this.index];
-
-		// console.log(this.setsRemaining);
 
 		// if there is no exercise next
 		if (currentExercise == undefined) {
@@ -86,7 +104,7 @@ export default class Workout {
 					}
 				}
 
-				this.start();
+				this.exerciseStart();
 				return;
 			}
 
@@ -132,9 +150,16 @@ export default class Workout {
 	private rest() {
 		let restTimer = new Timer(this.restTime);
 
+		info_div.innerHTML = ""; // clears the div
+
 		timeDiv.innerText = restTimer.getTimerText();
+
+		let title = document.createElement("h1");
 		title.innerText = "Rest";
-		image.src = "./assets/clock.svg";
+
+		info_div.appendChild(title);
+		info_div.appendChild(this.clockImage);
+
 
 		let restInterval = setInterval(() => {
 
@@ -142,7 +167,7 @@ export default class Workout {
 				clearInterval(restInterval);
 				alarm.play();
 				this.index++; // goes to the next index
-				this.start();
+				this.exerciseStart();
 			} else {
 				timeDiv.innerText = restTimer.getTimerText();
 				restTimer.tick();
@@ -156,13 +181,16 @@ export default class Workout {
 			this.rest();
 		} else {
 			this.index++;
-			this.start();
+			this.exerciseStart();
 		}
 	}
 
 	// this method renders the info once when called
 	private renderInfo() {
-		let exerciseImage: string = this.exercises[this.index].getImageURL();
+
+		info_div.innerHTML = ""; // clears the div
+
+		let exerciseImage: HTMLImageElement = this.images[this.index];
 		let exerciseName = this.exercises[this.index].getName();
 
 		// this little math will make something like
@@ -174,12 +202,12 @@ export default class Workout {
 		document.getElementById("input").style.display = "none";
 
 
-		title.innerText = `${ordinal_suffix_of(currentSet)} set`;
-		title.innerText += "\n";
-		title.innerText += exerciseName;
+		let title = document.createElement("h1");
+		title.innerText = `${ordinal_suffix_of(currentSet)} set\n${exerciseName}`;
 
+		info_div.appendChild(title);
 		// picking the current exercise image
-		if (exerciseImage) image.src = exerciseImage;
+		if (exerciseImage) info_div.appendChild(exerciseImage);
 	}
 
 	private renderResults() {
