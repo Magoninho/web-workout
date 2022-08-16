@@ -25,9 +25,6 @@ export default class Workout {
         this.workoutObj = workoutObj;
         this.name = this.workoutObj['workoutName'];
         this.numOfExercises = Object.keys(this.workoutObj['exercises']).length;
-        this.exercises = new Array(this.numOfExercises);
-        this.images = new Array(this.numOfExercises);
-        this.progress = new Progress(this.numOfExercises, loading_div);
     }
     /**
      * This method will:
@@ -40,6 +37,14 @@ export default class Workout {
      */
     start() {
         return __awaiter(this, void 0, void 0, function* () {
+            if (this.numOfExercises <= 0) {
+                alert("Error: No Exercises");
+                window.location.reload();
+                return;
+            }
+            this.exercises = new Array(this.numOfExercises);
+            this.images = new Array(this.numOfExercises);
+            this.progress = new Progress(this.numOfExercises, loading_div);
             for (let e = 0; e < this.exercises.length; e++) {
                 let exercisesDict = this.workoutObj['exercises'];
                 let names = Object.keys(exercisesDict);
@@ -145,13 +150,16 @@ export default class Workout {
         }, 1000);
     }
     nextExercise() {
-        if (this.enableResting) {
+        if (this.enableResting && !this.isOnLastExercise()) {
             this.rest();
         }
         else {
             this.index++;
             this.exerciseStart();
         }
+    }
+    isOnLastExercise() {
+        return (this.exercises[this.index + 1] == undefined && this.setsRemaining == 1);
     }
     // this method renders the info once when called
     renderInfo() {

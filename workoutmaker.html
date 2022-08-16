@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web Workout</title>
+	<link rel="stylesheet" href="style/main.css">
+	<link rel="stylesheet" href="style/modal.css">
+
+	<style>
+		input[type=text]:read-only {
+
+			background-color: gray;
+		}
+
+		form {
+			text-align: left;
+		}
+
+		input[type=button], input[type=submit] {
+			cursor: pointer;
+			margin-top: 10px;
+			height: 40px;
+			padding-left: 10px;
+			padding-right: 10px;
+			border-width: 1px;
+			color: #000;
+			border-color: #dcdcdc;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			border-bottom-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+			box-shadow: 0px 1px 0px 0px #000;
+			background: linear-gradient(#ffffff, #bbbbbb);
+			font-family: monospace;
+		}
+
+		input[type=button]:active, input[type=submit]:active {
+			background: linear-gradient(#bbbbbb, #ffffff);
+		}
+	</style>
+</head>
+
+<body>
+	<img src="assets/workout-maker.png" alt="Web Workout" style="max-width: 100%;">
+	<form id="myForm" name="myForm">
+		<div>
+			<h2>Workout Information</h2>
+		</div>
+		<div>
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name">
+		</div>
+		<div>
+			<label for="restTime">Rest time</label>
+			<input type="number" id="restTime" name="restTime" placeholder="Leave it blank for no resting">
+		</div>
+		<div>
+			<label for="setsNumber">Sets</label>
+			<input type="number" id="setsNumber" name="setsNumber" min="1" value="1">
+		</div>
+
+
+		<h2>Exercises</h2>
+		<div id="exercises-container"></div>
+		<div>
+			<input type="button" value="+ exercise" id="exercise-submit">
+		</div>
+		<input type="submit" value="Submit!">
+	</form>
+
+	<script type="module" src="dist/WorkoutMaker/formHandler.js"></script>
+</body>
+
+</html>
