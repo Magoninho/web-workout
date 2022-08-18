@@ -224,6 +224,9 @@ export default class Workout {
 	private renderResults() {
 
 		resultText.innerHTML = `
+		<div style="width: fit-content;">
+			<a href="/" class="back-button"><< Back</a>
+		</div>
 		<b>Results:</b><br>
 		Exercises made: ${this.numOfExercises * this.numOfSets}
 		`;

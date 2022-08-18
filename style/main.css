@@ -126,6 +126,37 @@ button:disabled {
 	border: 1px solid black;
 }
 
+.back-button, .back-button:hover, .back-button:active, .back-button:disabled {
+	all: revert;
+
+	-webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+
+	border-radius: 10px;
+	border: none;
+	display: inline-block;
+	/* float: left; */
+	padding: 15px 25px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(37, 37, 37);
+	outline: none;
+	cursor: pointer;
+	font-family: monospace;
+	transition: background-color 0.5s;
+	background-color: aliceblue;
+}
+
+.back-button:hover {
+	background-color: rgb(191, 225, 255);
+}
+
 #input div {
 	padding: 30px;
 	max-width: 400px;
@@ -141,4 +172,3 @@ button:disabled {
 	border: 1px solid black;
 	padding: 15px;
 }
-
